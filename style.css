@@ -5,25 +5,124 @@ body {
 }
 
 .banner-container {
-  background-size: cover;
-  background-color: black;
-  background-origin: center;
-  background-position: center;
-  color: white;
-  text-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.6);
-  min-height: 100vh;
-  font-size: 5rem;
+    position: fixed;
+    background-size: cover;
+    background-color: black;
+    background-origin: center;
+    background-position: center;
+    min-height: 100vh;
+    width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
 
-  background-image: url("italie.jpg");
-  background-blend-mode: multiply;
-  background-color: rgb(163, 163, 163);
+    background-image: url("italie.jpg");
+    background-blend-mode: multiply;
+    background-color: rgb(163, 163, 163);
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.three-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    width: 100vw;
+}
+
+.right-block {
+    grid-column: 3/4;
+}
+
+.background-basic {
+    display: grid;
+
+    grid-template-columns: 1fr auto auto;
+}
+
+.writing-block {
+    background-color: rgb(221, 221, 189);
+
+    grid-column: 3/4;
+
+    height: 100px;
+    width: 100px;
+
+    overflow: hidden;
+    
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.text-block {
+    position: relative;
+
+    left: 0;
+    top: 0;
+    opacity: 0;
+
+    width: 33vw;
+    height: 500px;
+    
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.left-side-scewed {
+
+    width: 0;
+    height: 0;
+
+    grid-column: 2/3;
+
+    border-top: 100px solid transparent;
+    border-right: 50px solid rgb(221, 221, 189);
+    
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.bottom-scewed {
+    position: relative;
+
+    grid-column: 2/4;
+
+    width: 0;
+    height: 0;
+    top: -1px;
+    
+    border-top: 100px solid rgb(221, 221, 189);
+    border-left: 150px solid transparent;
+    
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.background-basic:hover {
+    .writing-block {
+        width: 33vw;
+        height: 500px;
+    }
+
+    .left-side-scewed {
+        border-right-width: 100px;
+        border-top-width: 500px;
+    }
+
+    .bottom-scewed {
+        border-top-width: 150px;
+        border-left-width: calc(100px + 33vw);
+    }
+
+    .text-block {
+        opacity: 100;
+    }
 }
 
 .banner-filter {
@@ -39,4 +138,18 @@ body {
 .banner-content {
     z-index: 2;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.6);
+}
+
+.spacer {
+    height: 50vh;
 }
